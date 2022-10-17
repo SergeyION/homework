@@ -1,8 +1,21 @@
-﻿int array { 1, N }
-{
-    int i = 0; 
-    int result = ;
-    if (arg2 > result) result = arg2;
-    if (arg3 > result) result = arg3;
-    return result;
-}
+﻿// Задача 8: Напишите программу, которая на вход принимает число (N), 
+// а на выходе показывает все чётные числа от 1 до N.
+
+// Генерируем случайное число "N" в диапозоне от 1 до N
+int N = new Random().Next(2, 42);
+int currentNumber = 1; // Переменная первая
+int lastNumber = N; // Переменная последняя
+
+ // Вывод консоли с предложением ввести последнее число интервала
+ Console.Write(" Все чётные числа из заданного интервала: [1, " + N + "]: ");
+
+// Запускаем цикл: (условие пока первая переменная меньше или равна последней переменной)
+ while (currentNumber <= lastNumber)
+ {
+    if (currentNumber % 2 == 0)
+    {
+        Console.WriteLine(currentNumber + " ");
+    }
+
+    currentNumber++;
+ }
