@@ -1,17 +1,87 @@
 ﻿// Задача 13: Напишите метод, который выводит третью цифру 
 // заданного числа или сообщает, что третьей цифры нет.
+// 645 -> 6
+// 78 -> третьей цифры нет
+// 32679 -> 6
 
-Console.WriteLine("Введите любое целое числа число.\nВыхода из программы команда Exit.");
+// Мой способ № 1:
+// int number = new Random().Next(10, 999999);
+// Console.WriteLine(number);
+// if(number < 1000000)
+// {
+// int result = (number / 1000) % 10;
+// Console.WriteLine(result);
+// }
+// else
+// {
+// if(number < 100000)
+// {
+// int result = (number / 1000) % 10;
+// Console.WriteLine(result);
+// }
+// else
+// {
+// if(number < 10000)
+// {
+// int result = (number / 100) % 10;
+// Console.WriteLine(result);
+// }
+// else
+// {
+// if(number < 100)
+// {
+// Console.WriteLine("Третьей цифры нет");
+// } 
+// }
+// }
+// }
 
-while (true)
+// 2 Способ через цикл с методом void
+
+// internal class Program
+// {
+// private static void Main(string[] args)
+// {
+// void thirdDigit(int num)
+// {
+// if (Math.Abs(num) < 100)
+// {
+// Console.WriteLine("Третья цифра отсутствует");
+// }
+// else
+// {
+// while (Math.Abs(num) < 999)
+// {
+// num /= 10;
+// }
+// Console.WriteLine($"Третья цифра цикла: {Math.Abs(num % 10)}");
+// }
+// }
+
+// Console.WriteLine("Введите число: ");
+// int number = int.Parse(Console.ReadLine());
+
+// thirdDigit(number);
+// }
+// }
+
+// Метод №3! Конечный!
+
+int value = new Random().Next(-99, 99999);
+Console.WriteLine(value);
+if (value < 0) value = -value;
+
+// if (value > 100)
+// {
+// while (value > 1000) value /= 10;
+// Console.WriteLine(value % 10);
+// }
+
+void result(int value)
 {
-    string input = Console.ReadLine(); // локальная переменная / считывает введёное значение
-    if(!input.Equals("exit")) 
-        Console.WriteLine("{0}->{2}", input, input[1]); // прогоняет две цифры из трёх с индексом [0] и [1]
-        else
-            break;
-        // Console.WriteLine("{1}->{2}", input[1], input[2]);
-        // else
-        // break;
+    int b = value / 100 % 10;
+    if (b < 99) Console.WriteLine(b);
+    else Console.WriteLine("Третьей цифры нет");
 }
 
+result(value);
